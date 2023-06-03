@@ -1,0 +1,6 @@
+[submodule "perceptual_var/ReColorAdv"]
+	path = perceptual_var/ReColorAdv
+	url = https://github.com/cassidylaidlaw/ReColorAdv.git
+[submodule "perceptual_var/advex-uar"]
+	path = perceptual_var/advex-uar
+	url = git@github.com:ddkang/advex-uar.git

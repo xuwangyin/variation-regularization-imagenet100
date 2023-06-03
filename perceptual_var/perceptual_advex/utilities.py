@@ -7,7 +7,7 @@ from torch import nn
 from robustness.datasets import DATASETS, DataSet
 from robustness.model_utils import make_and_restore_model
 from robustness.attacker import AttackerModel
-from advex_uar.common import pyt_common as uar_common
+#from advex_uar.common import pyt_common as uar_common
 from torch.nn import ReLU
 
 from .models import CifarResNetFeatureModel, ImageNetResNetFeatureModel, \

@@ -14,6 +14,7 @@ from torchvision import datasets, transforms
 import os
 
 from ResNet import ResNet18
+from ResNet import ResNet50
 from utils_var import *
 import activations
 from trades import trades_loss
@@ -204,7 +205,7 @@ def main():
     # model.apply(initialize_weights)
     act = activations.__dict__[args.activation]()
 
-    model = ResNet18(num_classes=10, activation=act)
+    model = ResNet50(num_classes=100, activation=act)
     model = nn.DataParallel(model).cuda()
 
     if args.l2:

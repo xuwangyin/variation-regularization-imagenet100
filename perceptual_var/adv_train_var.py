@@ -273,7 +273,7 @@ if __name__ == '__main__':
                 attack_adv_inputs[to_attack] = attack(inputs[to_attack],
                                                       labels[to_attack])
             adv_inputs_list.append(attack_adv_inputs)
-        if args.var_reg > 0:
+        if args.var_reg > 0 and to_attack.sum() > 0:
             attack_var1_inputs[to_attack], attack_var2_inputs[to_attack] = var_reg(inputs[to_attack],
                                                                                labels[to_attack])
         adv_inputs: torch.Tensor = torch.cat(adv_inputs_list)

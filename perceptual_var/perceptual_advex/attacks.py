@@ -4,6 +4,8 @@ import functools
 from torch import nn
 from operator import mul
 from torch import optim
+
+sys.path.append('./advex-uar')
 from advex_uar.common.pyt_common import get_attack as get_uar_attack
 from advex_uar.attacks.attacks import InverseImagenetTransform
 
@@ -11,6 +13,7 @@ from .perceptual_attacks import *
 from .utilities import LambdaLayer
 from . import utilities
 
+sys.path.append('./ReColorAdv')
 # mister_ed
 from recoloradv.mister_ed import loss_functions as lf
 from recoloradv.mister_ed import adversarial_training as advtrain

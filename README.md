@@ -15,3 +15,13 @@ For directions on running training and evaluation, please refer to the README lo
 Pretrained models:
 - For $\ell_2$ and $\ell_\infty$ sources (these should be evaluated with code in ```eval``` directory): [models](https://drive.google.com/drive/folders/1NhwxGF5BLo_T9YgnF2zSzfhZx0bfBIpk?usp=sharing)
 - For PAT-VR, StAdv, and ReColor sources (these should be evaluated with code in ```perceptual_var``` directory): [models](https://drive.google.com/drive/folders/11rTDxHELefgyomEy-RZxRWLFb2EZKS3S?usp=sharing)
+
+## Train VR models on ImageNet100
+
+- PAT-VR with VR=0.1, 0.3, 0.5, 1.0: `cd perceptual_var; sh train_imagenet100.sh`
+
+- L2 0.5 + VR 1.0: `cd train; sh train_imagenet100_lp.sh`
+
+Place ImageNet in `/data/$(whoami)/Projects/adversarial-corruptions/datasets/imagenet`, and ImageNet100 in `/data/$(whoami)/Projects/adversarial-corruptions/datasets/imagenet100`
+
+

@@ -115,9 +115,9 @@ def get_args():
     parser.add_argument('--act-beta-clip', default=0.1, type=float)
     parser.add_argument('--batch-size', default=128, type=int)
     parser.add_argument('--data-dir', default='/scratch/gpfs/sihuid/data/imagenette2', type=str)
-    parser.add_argument('--epochs', default=200, type=int)
+    parser.add_argument('--epochs', default=100, type=int)
     parser.add_argument('--lr-schedule', default='piecewise', choices=['superconverge', 'piecewise'])
-    parser.add_argument('--lr-max', default=0.01, type=float)
+    parser.add_argument('--lr-max', default=0.1, type=float)
     parser.add_argument('--attack', default='pgd', type=str, choices=['pgd', 'none'])
     parser.add_argument('--epsilon', default=8, type=int)
     parser.add_argument('--attack-iters', default=10, type=int)
@@ -231,12 +231,14 @@ def main():
         # lr_schedule = lambda t: np.interp([t], [0, args.epochs], [0, args.lr_max])[0]
     elif args.lr_schedule == 'piecewise':
         def lr_schedule(t):
-            if t / args.epochs < 0.5:
+            if t / args.epochs < 0.3:
                 return args.lr_max
-            elif t / args.epochs < 0.75:
+            elif t / args.epochs < 0.6:
                 return args.lr_max / 10.
-            else:
+            elif t / args.epochs < 0.8:
                 return args.lr_max / 100.
+            else:
+                return args.lr_max / 1000.
 
     best_test_robust_acc = 0
     if args.resume:
